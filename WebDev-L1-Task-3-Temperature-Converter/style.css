@@ -1,0 +1,544 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   ROOT
+========================= */
+
+:root {
+    --bg-dark: #080d1d;
+    --bg-card: #111a2f;
+    --input-bg: #18213a;
+    --border: #2b3655;
+
+    --text-main: #f5f7ff;
+    --text-muted: #9aa8c7;
+
+    --primary: #7064ff;
+    --secondary: #28c6d8;
+
+    --error: #ff6b81;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(112, 100, 255, 0.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(40, 198, 216, 0.10),
+            transparent 35%
+        ),
+        var(--bg-dark);
+
+    color: var(--text-main);
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.converter-card {
+    width: 100%;
+    max-width: 730px;
+
+    padding: 48px;
+
+    background: rgba(17, 26, 47, 0.96);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+
+    color: var(--secondary);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 62px);
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.subtitle {
+    max-width: 560px;
+
+    margin: 24px auto 0;
+
+    color: var(--text-muted);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.converter-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.form-group label {
+    color: var(--text-main);
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   NUMBER INPUT
+   IMPORTANT:
+   NO CUSTOM DROPDOWN ARROW
+========================= */
+
+input[type="number"] {
+    width: 100%;
+
+    height: 54px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--input-bg);
+
+    color: var(--text-main);
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="number"]::placeholder {
+    color: #71809f;
+}
+
+input[type="number"]:focus {
+    border-color: var(--secondary);
+
+    box-shadow:
+        0 0 0 3px rgba(40, 198, 216, 0.12);
+}
+
+
+/* =========================
+   REMOVE NUMBER SPINNER
+   ========================= */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+
+/* =========================
+   SELECT
+========================= */
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: "⌄";
+
+    position: absolute;
+
+    top: 50%;
+    right: 18px;
+
+    transform: translateY(-55%);
+
+    color: #9aa8c7;
+
+    font-size: 18px;
+
+    pointer-events: none;
+}
+
+select {
+    width: 100%;
+
+    height: 54px;
+
+    padding: 0 48px 0 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--input-bg);
+
+    color: var(--text-main);
+
+    font-size: 16px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+select:focus {
+    border-color: var(--secondary);
+
+    box-shadow:
+        0 0 0 3px rgba(40, 198, 216, 0.12);
+}
+
+select option {
+    background: var(--input-bg);
+
+    color: var(--text-main);
+}
+
+
+/* =========================
+   CONVERT BUTTON
+========================= */
+
+.convert-btn {
+    width: 100%;
+
+    height: 56px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7064ff,
+            #28c6d8
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.convert-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(40, 198, 216, 0.20);
+}
+
+.convert-btn:active {
+    transform: translateY(0);
+}
+
+.arrow {
+    font-size: 22px;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message {
+    min-height: 18px;
+
+    color: var(--error);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result-box {
+    margin-top: 30px;
+
+    padding: 24px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background: rgba(24, 33, 58, 0.75);
+}
+
+.result-box.hidden {
+    display: none;
+}
+
+.result-title {
+    margin-bottom: 20px;
+
+    color: var(--secondary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.result-item {
+    padding: 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: rgba(8, 13, 29, 0.45);
+
+    text-align: center;
+}
+
+.result-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+}
+
+.result-item strong {
+    color: var(--text-main);
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   SUPPORT TEXT
+========================= */
+
+.support-text {
+    margin-top: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+}
+
+.support-text span {
+    color: var(--secondary);
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 24px 14px;
+    }
+
+    .converter-card {
+        padding: 34px 22px;
+
+        border-radius: 20px;
+    }
+
+    .header {
+        margin-bottom: 32px;
+    }
+
+    h1 {
+        font-size: 40px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .converter-card {
+        padding: 30px 18px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    input[type="number"],
+    select {
+        height: 52px;
+    }
+
+    .convert-btn {
+        height: 54px;
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <div class="converter-card">
+
+            <!-- Header -->
+            <div class="header">
+                <p class="eyebrow">TEMPERATURE TOOL</p>
+
+                <h1>
+                    Temperature <span>Converter</span>
+                </h1>
+
+                <p class="subtitle">
+                    Convert temperatures between Celsius, Fahrenheit,
+                    and Kelvin quickly and accurately.
+                </p>
+            </div>
+
+
+            <!-- Converter Form -->
+            <form id="converterForm" class="converter-form">
+
+                <!-- Temperature Input -->
+                <div class="form-group">
+
+                    <label for="temperature">
+                        Enter Temperature
+                    </label>
+
+                    <input
+                        type="number"
+                        id="temperature"
+                        placeholder="Enter a value"
+                        step="any"
+                        autocomplete="off"
+                    >
+
+                    <p id="inputError" class="error-message"></p>
+
+                </div>
+
+
+                <!-- Unit Selector -->
+                <div class="form-group">
+
+                    <label for="unit">
+                        Input Unit
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <select id="unit">
+
+                            <option value="celsius">
+                                Celsius (°C)
+                            </option>
+
+                            <option value="fahrenheit">
+                                Fahrenheit (°F)
+                            </option>
+
+                            <option value="kelvin">
+                                Kelvin (K)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Convert Button -->
+                <button
+                    type="submit"
+                    class="convert-btn"
+                >
+                    <span>Convert Temperature</span>
+                    <span class="arrow">→</span>
+                </button>
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" class="result-box hidden">
+
+                <p class="result-title">
+                    Converted Temperature
+                </p>
+
+                <div class="result-grid">
+
+                    <div class="result-item">
+                        <span class="result-label">Celsius</span>
+                        <strong id="celsiusResult">--</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Fahrenheit</span>
+                        <strong id="fahrenheitResult">--</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Kelvin</span>
+                        <strong id="kelvinResult">--</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Note -->
+            <div class="support-text">
+                <span>✓</span>
+                Supports Celsius, Fahrenheit and Kelvin
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
